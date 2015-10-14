@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="/theme/css/style.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/font-awesome.min.css">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Cyclic Materials" />
+  <meta name="description" content="A Material Design Components Library Collection" />
+<meta property="og:site_name" content="Cyclic Materials for Cycle.js"/>
+<meta property="og:type" content="blog"/>
+<meta property="og:title" content="Cyclic Materials for Cycle.js"/>
+<meta property="og:description" content="A Material Design Components Library Collection"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content=""/>
+  <title>Cyclic Materials for Cycle.js &ndash; CSS</title>
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="">
+        <img src="/theme/img/profile.png" alt="Cyclic Materials" title="Cyclic Materials">
+      </a>
+      <h1><a href="">Cyclic Materials</a></h1>
+      <p>A Material Design Components Library Collection for Cycle.js</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/pages/cyclic-materials-css-naming-conventions.html#cyclic-materials-css-naming-conventions">CSS</a></li>
+          <li><a href="//cycle.js.org" target="_blank">Cycle.js</a></li>
+        </ul>
+      </nav>
+      <ul class="social">
+      </ul>
+    </div>
+  </aside>
+  <main>
+    <nav>
+      <a href="">Home</a>
+      <a href="/archives.html">Archives</a>
+      <a href="/categories.html">Categories</a>
+      <a href="/tags.html">Tags</a>
+    </nav>
+
+<article>
+  <header>
+    <h1 id="cyclic-materials-css-naming-conventions">CSS</h1>
+  </header>
+  <div>
+    <h1>Cyclic Materials CSS Naming Conventions</h1>
+<blockquote>
+<p>Cyclic Materials CSS relies on <em>structural class names</em> and <em>meaningful
+hyphens</em>, i.e., not using hyphens merely to separate words. This helps to work
+around the current limits of applying CSS to the DOM, and to better communicate
+the relationships between classes.</p>
+<p>The primary architectural division is between the patterns <strong><a href="#Atoms">atom</a></strong>, 
+<strong><a href="#Molecules">molecule</a></strong>, and <strong><a href="#Organisms">organism</a></strong>.</p>
+</blockquote>
+<h4>Table of Contents</h4>
+<ul>
+<li><a href="#Components">Components</a></li>
+<li><a href="#pattern">pattern</a></li>
+<li><a href="#ComponentName">ComponentName</a></li>
+<li><a href="#ComponentName--modifierName">ComponentName--modifierName</a></li>
+<li><a href="#ComponentName_descendentName">ComponentName_descendentName</a></li>
+<li><a href="#is-stateOfComponent">ComponentName.is-stateOfComponent</a></li>
+</ul>
+<p><a name="Component"></a></p>
+<h2>Components</h2>
+<blockquote>
+<p>The CSS responsible for component-specific styling.</p>
+</blockquote>
+<p><strong>Syntax:</strong> <code>&lt;pattern&gt;-&lt;ComponentName&gt;[--modifierName|_descendentName]</code></p>
+<p>This has several benefits when reading and writing HTML and CSS:</p>
+<ul>
+<li>it helps to distinguish between classes for the root of the component, 
+  descendent elements, and modifications,</li>
+<li>it keeps the specificity of selectors low, and</li>
+<li>it helps to decouple presentation semantics from document semantics.</li>
+</ul>
+<p><a name="pattern"></a></p>
+<h3>Pattern</h3>
+<p>Components are prefixed with a pattern, which borrows from atomic design 
+principles.</p>
+<div class="highlight"><pre><span class="nc">.atom-AutogrowTextarea</span> <span class="p">{</span> <span class="c">/* ... */</span> <span class="p">}</span>
+<span class="nc">.molecule-Input</span> <span class="p">{</span> <span class="c">/* ... */</span> <span class="p">}</span>
+</pre></div>
+
+
+<p>This makes it clear, when reading the HTML, which components
+are part of each pattern.</p>
+<p>There are three distinct patterns:</p>
+<p><a name="Atoms"></a></p>
+<h4>Atoms</h4>
+<p>Atom components are a set of <strong>basic visual and non-visual utility components.</strong>
+They include components for working with layout, user input, selection and 
+scaffolding apps. They include abstract components like color palettes, fonts, 
+and animations.</p>
+<p><a name="Molecules"></a></p>
+<h4>Molecules</h4>
+<p>Molecule components are a set of visual components that implement
+Material Design. They are <strong>groups of components that function together
+as a unit</strong>.</p>
+<p><a name="Organisms"></a></p>
+<h4>Organisms</h4>
+<p>Organisms are <strong>groups of molecules (and atoms) joined together to form 
+a distinct section of an interface</strong>. Organisms can consist of similar or
+disparate molecule types.</p>
+<p><a name="ComponentName"></a></p>
+<h3>ComponentName</h3>
+<p>The component’s name is written in pascal case. Nothing else in HTML/CSS uses
+pascal case.</p>
+<div class="highlight"><pre><span class="nc">.molecule-InputCharCounter</span> <span class="p">{</span> <span class="c">/* ... */</span> <span class="p">}</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;molecule-InputContainer&quot;</span><span class="nt">&gt;</span>
+  ...
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+
+<p><a name="ComponentName--modifierName"></a></p>
+<h3>ComponentName--modifierName</h3>
+<p>A component modifier is a class that modifies the presentation of the base
+component in some form, e.g., for a certain configuration of the component.
+Modifier names are written in camel case and is separated from the component
+by two hyphens. A modifier class always extends the base class and inherits
+all base declarations, of which some may be overridden.</p>
+<div class="highlight"><pre><span class="c">/* Core flex layout */</span>
+<span class="nc">.atom-FlexLayout</span> <span class="p">{</span> <span class="c">/* ... */</span> <span class="p">}</span>
+<span class="c">/* Vertical flex layout */</span>
+<span class="nc">.atom-FlexLayout--vertical</span> <span class="p">{</span> <span class="c">/* ... */</span> <span class="p">}</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;atom-Flexlayout--vertical&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+
+<p><a name="ComponentName_descendentName"></a></p>
+<h3>ComponentName_descendentName</h3>
+<p>A component descendent is a class that is attached to the descendent node
+of a component. It’s responsible for applying presentation directly
+to the descendent on behalf of a particular component. Descendent names
+are written in camel case.</p>
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;atom-AutogrowTextarea&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;atom-AutogrowTextarea_mirrorText&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;atom-AutogrowTextarea_container&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;textarea</span> <span class="na">class=</span><span class="s">&quot;atom-AutogrowTextarea_textarea&quot;</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+
+<p><a name="is-stateOfComponent"></a></p>
+<h3>ComponentName.is-stateOfComponent</h3>
+<p><code>is-stateOfComponent</code> is used to reflect changes to a component’s state.
+The state name is camel case. <strong>These classes are never styled directly;
+they should be and are always used as an adjoining class.</strong></p>
+<p>This means that the same state names are used in multiple contexts, but every
+component defines its own styles for the state, as they are scoped
+to the component.</p>
+<div class="highlight"><pre><span class="nc">.molecule-InputContainer</span> <span class="p">{</span> <span class="c">/* ... */</span> <span class="p">}</span>
+<span class="nc">.molecule-InputContainer.is-Highlighted</span> <span class="p">{</span> <span class="c">/* ... */</span> <span class="p">}</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;molecule-InputContainer is-Highlighted&quot;</span><span class="nt">&gt;</span>
+  ...
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+  </div>
+</article>
+
+    <footer>
+      <p>&copy; Cyclic Materials 2015</p>
+<p>Built using <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a></p>    </footer>
+  </main>
+</body>
+</html>
