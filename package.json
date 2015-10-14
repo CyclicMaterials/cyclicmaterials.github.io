@@ -1,0 +1,35 @@
+{
+  "name": "@cyclic/cyclicmaterials.github.io",
+  "version": "0.0.0",
+  "author": "Frederik Krautwald",
+  "description": "Cyclic Materials Github pages.",
+  "license": "MIT",
+  "bugs": "https://github.com/CyclicMaterials/cyclicmaterials.github.io/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CyclicMaterials/cyclicmaterials.github.io"
+  },
+  "keywords": [
+    "Cyclic Materials",
+    "website",
+    "cycle.js"
+  ],
+  "directories": {
+  },
+  "files": [
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "cli-release": "1.0.3",
+    "validate-commit-message": "3.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deps": "npm install && validate-commit-msg",
+    "start": "npm run deps",
+    "patch": "git checkout master && release patch && npm publish --access=public",
+    "minor": "git checkout master && release minor && npm publish --access=public",
+    "major": "git checkout master && release major && npm publish --access=public"
+  }
+}
