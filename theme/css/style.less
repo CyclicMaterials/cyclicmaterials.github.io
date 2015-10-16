@@ -1,5 +1,5 @@
-@orange: #D9411E;
-@light-orange: #FF5A09;
+@primary: #538774;
+@secondary: #8ec6b2;
 @white:  #ffffff;
 @grey: #333333;
 @light-grey:  #eeeeee;
@@ -58,12 +58,12 @@ body {
 }
 
 a {
-  color: @orange;
+  color: @primary;
   text-decoration: none;
 }
 
 a:hover {
-  color: @light-orange;
+  color: @secondary;
 }
 
 hr {
@@ -124,6 +124,7 @@ aside {
 }
 
 main {
+
   nav {
     text-align: center;
     text-transform: uppercase;
@@ -152,6 +153,7 @@ main {
   }
 
   article {
+    max-width: 54em;
     margin: 0 8% 2% 8%;
 
     header {
@@ -255,7 +257,7 @@ main {
 
 .tag-cloud {
   a {
-    background-color: @orange;
+    background-color: @primary;
     padding: .2em .6em .2em;
     font-size: .74em;
     line-height: 1;
@@ -267,12 +269,12 @@ main {
   }
 
   a:hover {
-    background-color: @light-orange;
+    background-color: @secondary;
   }
 }
 
 a.btn {
-  background-color: @orange;
+  background-color: @primary;
   padding: .4em .6em;
   font-size: .9em;
   line-height: 1;
@@ -284,7 +286,7 @@ a.btn {
 }
 
 a.btn:hover {
-  background-color: @light-orange;
+  background-color: @secondary;
 }
 
 .center {
